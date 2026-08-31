@@ -45,10 +45,15 @@ main { background: white; flex: 3; box-shadow: 0 2px 4px rgba(0,0,0,0.05); }
 article { background: #f8fafc; border: 1px solid #e2e8f0; }
 
 /* 4. Sidebar Area (Takes 1x space) */
-aside { background: #e2e8f0; flex: 1; height: fit-content;  max-width: 300px;}
+aside { background: #e2e8f0; flex: 1; height: fit-content;  max-width: 350px;}
 
 /* 5. Footer */
 footer { background: #1e293b; color: white; text-align: center; margin-bottom: 0; }
+
+video {
+    width: 400px;
+    height: 400px;
+}
 
 /* 6. Responsive Breakdown for Mobile Devices */
 @media (max-width: 768px) {
