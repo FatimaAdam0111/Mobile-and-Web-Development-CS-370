@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>HTML API Examples</title>
+        <link rel="stylesheet" href="style1.css">
+    </head>
+
+    <body>
+        <h1>Web Storage API</h1>
+        <p>Save your name in the browser using <code>localStorage</code>.</p>
+
+        <label for="name">Name:</label>
+        <input id="name" type="text" placeholder="Enter your name">
+        <p></p>
+        <label for="age">Age:</label>
+        <input id="age" type="text" placeholder="Enter your age">
+        <p></p>
+        <button id="saveButton" type="button">Save</button>
+        <button id="clearButton" type="button">Clear</button>
+        <p id="message1"></p>
+        <script>
+            const nameInput=document.getElementById("name");
+            const ageInput=document.getElementById("age");
+            const message=document.getElementById("message1");
+
+            function showSavedName() {
+                const savedName=localStorage.getItem("studentName");
+                const savedAge=localStorage.getItem("studentAge");
+
+                if (savedName) {
+                    nameInput.value=savedName;
+                    ageInput.value=savedAge;
+                    message.textContent=`Welcome back, ${savedName} of age ${savedAge}!`
+                }else{
+                    message.textContent='No name or age has been saved yet'
+                }
+
+            }
+
+            document.getElementById("saveButton").addEventListener("click", () =>{
+                const name=nameInput.value.trim();
+                const age=ageInput.value.trim();
+
+                if(name){
+                    localStorage.setItem("studentName", name);
+                    localStorage.setItem("studentAge", age);
+                    showSavedName();
+
+                }else{
+                    message.textContent="Please enter a name and age first.";
+                }
+            });
+
+            document.getElementById("clearButton").addEventListener("click", () =>{
+                localStorage.removeItem("studentName");
+                localStorage.removeItem("studentAge");
+                nameInput.value="";
+                ageInput.value="";
+                message.textContent= "Saved name and age cleared"
+
+            });
+
+
+        </script>
+
+    </body>
