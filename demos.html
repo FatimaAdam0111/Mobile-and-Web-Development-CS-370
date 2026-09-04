@@ -1,10 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
+
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>My Portfolio</title>
         <link rel="stylesheet" href="style1.css">
+        <script src="https://www.youtube.com/iframe_api"></script>
     </head>
     <body>
         <header>
@@ -45,6 +47,19 @@
                     
                 </article>
 
+                <article>
+                    <li><h3 id="p4">Demo 4: YouTube Video</h3></li>
+
+                    <div id="player"></div>
+                    <iframe 
+                        width="700" 
+                        height="400"
+                        src="https://www.youtube.com/embed/XWi9ZTdmOIM"
+                        title="YouTube video"
+                        allowfullscreen>
+                    </iframe>
+                </article>
+
                 </ol>
             </main>
 
@@ -54,11 +69,31 @@
                     <li><a href="#p1">Demo 1: 4-DOF Robotic Arm</a></li>
                     <li><a href="#p2">Demo 2: Water level Controlled Tank</a></li>
                     <li><a href="#p3">Demo 3: Self Balancing Car</a></li>
+                    <li><a href="#p4">Demo 4:</a></li>
+                
 
                 </ol>
             </aside>
 
         </div>
+
+        <script>
+            let player;
+
+            function onYouTubeIframeAPIReady() {
+                player = new YT.Player('player', {
+                    height: '400',
+                    width: '700',
+                    videoId: 'XWi9ZTdmOIM',
+                    playerVars: {
+                        autoplay: 0,
+                        controls: 1
+                    }
+                });
+                
+
+            }
+        </script>
 
         <footer>
             <p>&copy 2026 Fatima Adamjee</p>
